@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer(['les3.asd'], function ($view) {
+            
+            
+            $view->with('age', 250);
+        });
+
+        View::share('age', '100');
+
+      
+       
     }
 
     /**

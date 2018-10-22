@@ -11,7 +11,7 @@
 |
 */
 
-Route::any('/', 'IndexController@mainPage')->name('index');
+Route::any('/', 'IndexController@about');
 
 Route::get('/news/{slug}.{id2}', 'IndexController@getNews')
     ->where([
