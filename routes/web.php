@@ -19,7 +19,7 @@ Route::get('/news/{slug}.{id2}', 'IndexController@getNews')
         'slug' => '[a-zA-Z0-9-_]+'
     ]);
 
-Route::get('/about', 'IndexController@about');
+Route::get('/about', 'IndexController@about')->middleware('logging');
 
 /*
  /admin/user

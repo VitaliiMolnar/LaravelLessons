@@ -14,16 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['les3.asd'], function ($view) {
-            
-            
-            $view->with('age', 250);
-        });
-
         View::share('age', '100');
 
-      
-       
+        View::composer(['les3.asd'], function ($view) {
+            $view->with('age', 250);
+        });        
     }
 
     /**
@@ -33,6 +28,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('Counter', function ($app) {
+            return new \App\Implementation\Counter();
+        });
+
+        $this->app->singelton('Counter', function ($app) {
+            return new \App\Implementation\Counter();
+        });
+
+        $this->app->bind(
+            'App\Interfaces\CounterInterface',
+            'App\Implementations\Counter'
+        );
     }
 }

@@ -2,6 +2,8 @@
 <h1>Мне, {{ $age ?? ''}} лет!</h1>
 
 
+Сейчас {{ formatDate() }}
+
 @verbatim
     <div class="container">
         Hello, {{ name }}.
